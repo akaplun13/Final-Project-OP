@@ -24,3 +24,10 @@ def add_new_data_source():
         print('\n\n\n\n\n', data_sources)
     except FileNotFoundError:
         print("File not found. Please enter a valid file path.")
+
+# частина Даші закомічена з мого акаунту
+    def check_existing_information():
+        print("\nExisting Information:")
+        for i, source in enumerate(data_sources, start=1):
+            metric_info = f"Metric: {source['metric']}" if source['metric'] else "Metric: Not calculated"
+            print(f"{i}) Datasource: {source['file_path']} | {metric_info}")
