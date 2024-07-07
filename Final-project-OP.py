@@ -26,11 +26,13 @@ def add_new_data_source():
         print("File not found. Please enter a valid file path.")
 
 # частина Даші закомічена з мого акаунту
-    def check_existing_information():
-        print("\nExisting Information:")
-        for i, source in enumerate(data_sources, start=1):
-            metric_info = f"Metric: {source['metric']}" if source['metric'] else "Metric: Not calculated"
-            print(f"{i}) Datasource: {source['file_path']} | {metric_info}")
+
+
+def check_existing_information():
+    print("\nExisting Information:")
+    for i, source in enumerate(data_sources, start=1):
+        metric_info = f"Metric: {source['metric']}" if source['metric'] else "Metric: Not calculated"
+        print(f"{i}) Datasource: {source['file_path']} | {metric_info}")
 
 
 def calculate_metric():
@@ -72,3 +74,23 @@ def calculate_metric():
         print(f"Based on the dataset, Gross Profit Margin was calculated. Value is: {gross_profit_margin:.2f}%")
     except KeyError:
         print("The dataset must contain 'revenue' and 'grossProfit' columns.")
+
+
+while True:
+    print("\nOptions:")
+    print("1. Add a new data source")
+    print("2. Check existing information")
+    print("3. Calculate metric")
+    print("4. Quit")
+    choice = input("Select an option: ").strip()
+
+    if choice == '1':
+        add_new_data_source()
+    elif choice == '2':
+        check_existing_information()
+    elif choice == '3':
+        calculate_metric()
+    elif choice == '4':
+        break
+    else:
+        print("Invalid choice. Please select a valid option.")
